@@ -12,4 +12,4 @@ jspm_packages/
 src/logs/*.json
 
 
-.txt
+/src/Data/*.txt
