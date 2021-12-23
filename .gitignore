@@ -13,3 +13,4 @@ src/logs/*.json
 
 
 /src/Data/*.txt
+src/Data/requests.txt
