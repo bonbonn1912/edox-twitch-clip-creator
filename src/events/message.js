@@ -23,13 +23,11 @@ async function handleMessage(target, context, msg, client) {
         target,
         "twitch clip will be created. Cooldown is 120 Seconds"
       );
-      //  whisperClip(target, client, api.createClipObject(context.username, time.getTime()));
       try {
         var clip = await api.createClip(context.username, time.getTime());
         whisperClip(target, client, clip);
         bunyan.createLogEntryForClip(clip, context.username, "CLIP ERSTELLT");
       } catch (e) {
-        console.log("Error: " + e);
         bunyan.createLogEntryForClip(e, context.username, "CLIPPEN FEHLGESCHLAGEN");
       }
     } else {

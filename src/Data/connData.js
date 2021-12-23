@@ -13,4 +13,4 @@ module.exports= opts = {
     ]
   };
 
-  console.log(process.env.TOKEN)
+  
