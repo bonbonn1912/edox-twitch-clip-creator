@@ -8,7 +8,7 @@ const clipEndpoint = 'clips?broadcaster_id=' + process.env.BROADCASTER_ID;
 
 async function createClip(createdBy, createdOn){
   //  console.log(  `${__dirname}/.env.${process.env.NODE_ENV}`);
-    console.log(clipEndpoint);
+   // console.log(clipEndpoint);
     return new Promise((resolve, reject) => {
         reqData.twitchEndpoint.post(clipEndpoint)
         .then(function(response){
@@ -18,8 +18,8 @@ async function createClip(createdBy, createdOn){
         });
         })
         .catch(function(error){
-           // console.log(error.response.data.status);
-           reject(error.response.data.status);
+          // console.log("ALARM" +error.response.data.status);
+          resolve(error.response.data.status);
         })
     })
     

@@ -1,14 +1,15 @@
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 
-logs
-*.log
+
 
 .env
 .env.*
 
 node_modules/
 jspm_packages/
+
+src/logs/*.json
 
 
 .txt
