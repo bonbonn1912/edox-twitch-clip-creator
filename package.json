@@ -4,11 +4,17 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start_windows_dev": "set NODE_ENV=development&&node bot.js",
+    "start_windows_prod": "set NODE_ENV=production&&node bot.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dot-env": "0.0.1"
+    "axios": "^0.24.0",
+    "bunyan": "^1.8.15",
+    "dot-env": "0.0.1",
+    "dotenv": "^10.0.0",
+    "tmi.js": "^1.8.5"
   }
 }

@@ -5,6 +5,10 @@ logs
 *.log
 
 .env
+.env.*
 
 node_modules/
 jspm_packages/
+
+
+.txt
