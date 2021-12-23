@@ -8,3 +8,4 @@ curl -X GET 'https://api.twitch.tv/helix \
 -H 'Client-Id: lew1yifdtr65ke7s9r9f9qlaoljaae'
 
 GET https://id.twitch.tv/oauth2/authorize?client_id=lew1yifdtr65ke7s9r9f9qlaoljaae&redirect_uri=http://localhost&response_type=token&scope=clips:edit chat:edit chat:read whispers:read whispers:edit
+d
