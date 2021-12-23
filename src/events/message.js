@@ -44,10 +44,10 @@ async function handleMessage(target, context, msg, client) {
 //whisper clip to streamer
 function whisperClip(target, client, clip) {
   var message = "Clip erstellt von :" + clip.createdBy + " am :" + clip.createdOn +" Url:" +clip.url;
-  bunyan.createLogEntryForWhisper(message);
+  bunyan.createLogEntryForWhisper("WHISPER GESENDET, INHALT: " +message);
   client.whisper(
-    "bonbot_",
-    message
+   process.env.WHISPER_TO,
+    message 
   );
 }
 
