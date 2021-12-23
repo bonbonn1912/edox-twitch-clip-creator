@@ -9,9 +9,8 @@ module.exports= opts = {
       password: process.env.TOKEN,
     },
     channels: [
-      "bonbot_",
-      "bonbonn_",
-     // "edox",
-     "montanablack88",
+     process.env.CHANEL,
     ]
   };
+
+  console.log(process.env.TOKEN)
