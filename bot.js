@@ -3,6 +3,11 @@ require("dotenv").config({
     path: `${__dirname}/.env.${process.env.NODE_ENV}`
 });
 
+console.log(process.env.NODE_ENV);
+console.log(process.env.CLIENT_ID);
+console.log(process.env.WHISPER_TO);
+console.log(process.env.BROADCASTER_ID);
+console.log(process.env.NODE_ENV);
 //import server
 const server = require('./src/server/server.js');
 
