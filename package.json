@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start_windows_dev": "set NODE_ENV=development&&node bot.js",
-    "start_windows_prod": "set NODE_ENV=production&&node bot.js"
+    "start_windows_prod": "set NODE_ENV=production&&node bot.js",
+    "start_linux_dev": "export NODE_ENV=development&&node bot.js",
+    "start_linux_prod": "export NODE_ENV=production&&node bot.js"
   },
   "author": "",
   "license": "ISC",
