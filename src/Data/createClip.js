@@ -16,7 +16,8 @@ async function createClip(createdBy, createdOn){
         });
         })
         .catch(function(error){
-          resolve(error.response.data.status);
+            console.log("throw error");
+         reject(error.response.data.status);
         })
     })
     
