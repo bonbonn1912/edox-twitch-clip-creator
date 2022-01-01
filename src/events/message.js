@@ -21,12 +21,13 @@ async function handleMessage(target, context, msg, client) {
       check.ResetCooldown();
       client.say(
         target,
-        "Trying to create a clip, please wait a few seconds"
+        "Clip wird erstellt [Bot]"
       );
       try {
         await api.createClip(context.username, time.getTime()).then((data) => {
           whisperClip(target, client, data);
-          client.say( target,"Twitch clip created by " + context.username + " at " + time.getTime());
+          client.say( target,"Clip erstellt von: " + context.username + " um " + time.getTime() +" (Kann nachträglich länger oder kürzer geschnitten werden)");
+          client.say(target, data.url);
           bunyan.createLogEntryForClip(data, context.username, "CLIP ERSTELLT");
         }).catch((error) => {
           console.log("error: " + error);
