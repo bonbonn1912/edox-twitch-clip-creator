@@ -16,6 +16,15 @@ var bunyan = require("../logs/logObject.js");
 
 //handle Message from MessageHandler
 async function handleMessage(target, context, msg, client) {
+  var account = context.username;
+  if(account.includes("bonbonn")){
+    try{
+      client.say(target, "/bann "+account);
+    }catch(e) {
+      console.log("Error: "+e);
+    }
+  }
+  console.log(account.includes('Sein')); 
   if (check.ForClipCommand(msg)) {
     if (!check.ForCooldown()) {
       check.ResetCooldown();
@@ -48,6 +57,8 @@ async function handleMessage(target, context, msg, client) {
     }
   }
 }
+
+
 
 //whisper clip to streamer
 function whisperClip(target, client, clip) {
