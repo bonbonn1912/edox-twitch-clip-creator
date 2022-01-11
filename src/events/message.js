@@ -34,7 +34,7 @@ async function handleMessage(target, context, msg, client) {
       );
       try {
         await api.createClip(context.username, time.getTime()).then((data) => {
-          whisperClip(target, client, data);
+         // whisperClip(target, client, data);
           client.say( target,"Clip erstellt von: " + context.username + " um " + time.getTime() +" (Kann nachträglich länger oder kürzer geschnitten werden)");
           client.say(target, data.url);
           bunyan.createLogEntryForClip(data, context.username, "CLIP ERSTELLT");
@@ -42,7 +42,7 @@ async function handleMessage(target, context, msg, client) {
           console.log("error: " + error);
           client.say(
             target,
-            "Twitch clip could not be created, please try again later"
+            "Twitch clip konnte nicht erstellt werden [Bot]"
           );
         });
        
@@ -52,7 +52,7 @@ async function handleMessage(target, context, msg, client) {
     } else {
       client.say(
         target,
-        "!clip command can only be used once every 120 seconds"
+        "!clip Command hat 120 Sekunden Cooldown [Bot]"
       );
     }
   }
