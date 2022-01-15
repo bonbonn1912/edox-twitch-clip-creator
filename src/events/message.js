@@ -59,7 +59,7 @@ function checkForSpam(target, context, msg, client){
     if(lowerCaseMessage.includes('buy') && lowerCaseMessage.includes('follower') || lowerCaseMessage.includes('followers')){
       client.say(target, "/ban " + context.username);
       client.say(target, "L8r @" + context.username + " [Bot]");
-      console.log("/ban " + context.username);
+      bunyan.createLogEntryForBan(context.username + " was banned");
     }
   }
 }
