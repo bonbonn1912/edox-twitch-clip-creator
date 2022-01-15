@@ -37,4 +37,3 @@ function onMessageHandler (target, context, msg, self){
    if(self){return};
    event.handleMessage(target, context, msg, client);
 }
-

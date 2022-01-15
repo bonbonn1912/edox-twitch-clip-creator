@@ -16,15 +16,10 @@ var bunyan = require("../logs/logObject.js");
 
 //handle Message from MessageHandler
 async function handleMessage(target, context, msg, client) {
-  var account = context.username;
-  if(account.includes("bonbonn")){
-    try{
-      client.say(target, "/bann "+account);
-    }catch(e) {
-      console.log("Error: "+e);
-    }
-  }
-  console.log(account.includes('Sein')); 
+
+  checkForSpam(target, context, msg, client);
+
+
   if (check.ForClipCommand(msg)) {
     if (!check.ForCooldown()) {
       check.ResetCooldown();
@@ -58,6 +53,16 @@ async function handleMessage(target, context, msg, client) {
   }
 }
 
+function checkForSpam(target, context, msg, client){
+  if(!context.subscriber){
+    var lowerCaseMessage = msg.toLowerCase();
+    if(lowerCaseMessage.includes('buy') && lowerCaseMessage.includes('follower') || lowerCaseMessage.includes('followers')){
+      client.say(target, "/ban " + context.username);
+      client.say(target, "L8r @" + context.username + " [Bot]");
+      console.log("/ban " + context.username);
+    }
+  }
+}
 
 
 //whisper clip to streamer
