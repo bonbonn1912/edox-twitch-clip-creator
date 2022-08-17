@@ -18,7 +18,7 @@ var bunyan = require("../logs/logObject.js");
 async function handleMessage(target, context, msg, client) {
 
   checkForSpam(target, context, msg, client);
-
+  checkForForbiddenWords(target, context, msg, client);
 
   if (check.ForClipCommand(msg)) {
     if (!check.ForCooldown()) {
@@ -63,6 +63,18 @@ function checkForSpam(target, context, msg, client){
     }
   }
 }
+
+function checkForForbiddenWords(target, context, msg, client){
+  
+    var lowerCaseMessage = msg.toLowerCase();
+    if(lowerCaseMessage.includes('krawatte') || lowerCaseMessage.includes('bwo') || lowerCaseMessage.includes('kravatte')){
+      client.say(target, "/timeout " + context.username+ " 600");
+      client.say(target, "L8r @" + context.username);
+    }
+}
+
+
+
 
 
 //whisper clip to streamer
