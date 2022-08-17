@@ -67,9 +67,9 @@ function checkForSpam(target, context, msg, client){
 function checkForForbiddenWords(target, context, msg, client){
   
     var lowerCaseMessage = msg.toLowerCase();
-    if(lowerCaseMessage.includes('krawatte') || lowerCaseMessage.includes('bwo') || lowerCaseMessage.includes('kravatte') || lowerCaseMessage.includes(':necktie:')|| lowerCaseMessage.includes('👔')){
+    if(lowerCaseMessage.includes('krawatte') || lowerCaseMessage.includes('bwo') || lowerCaseMessage.includes('kravatte') || lowerCaseMessage.includes(':necktie:')|| lowerCaseMessage.includes('👔') || lowerCaseMessage.includes('vitavate')){
       client.say(target, "/timeout " + context.username+ " 600");
-      client.say(target, "L8r @" + context.username);
+      client.say(target, "Stille Treppe Großer @" + context.username);
     }
 }
 
