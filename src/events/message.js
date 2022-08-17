@@ -70,6 +70,7 @@ function checkForForbiddenWords(target, context, msg, client){
     if(lowerCaseMessage.includes('krawatte') || lowerCaseMessage.includes('bwo') || lowerCaseMessage.includes('kravatte') || lowerCaseMessage.includes(':necktie:')|| lowerCaseMessage.includes('👔') || lowerCaseMessage.includes('vitavate')){
       client.say(target, "/timeout " + context.username+ " 600");
       client.say(target, "Stille Treppe Großer @" + context.username);
+      bunyan.createLogEntryForBan(context.username + " timeout due to eliasn97");
     }
 }
 
