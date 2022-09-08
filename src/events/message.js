@@ -7,6 +7,7 @@ require("dotenv").config({
 var check = require("../checks/checkForCommand.js");
 var api = require("../Data/createClip.js");
 var time = require("../Data/time.js");
+var reqData = require("../Data/endpoints")
 
 
 
@@ -53,15 +54,39 @@ async function handleMessage(target, context, msg, client) {
   }
 }
 
-function checkForSpam(target, context, msg, client){
+async function checkForSpam(target, context, msg, client){
+
   if(!context.subscriber){
     var lowerCaseMessage = msg.toLowerCase();
     if(lowerCaseMessage.includes('buy') && lowerCaseMessage.includes('follower') || lowerCaseMessage.includes('followers')){
-      client.say(target, "/ban " + context.username);
-      client.say(target, "L8r @" + context.username + " [Bot]");
+      let userid = await getUserID(context.username);
+      banUser(userid);
+   //    client.say(target, "/ban " + context.username);
+   // client.say(target, "L8r @" + context.username + " [Bot]");
       bunyan.createLogEntryForBan(context.username + " was banned");
     }
   }
+}
+ 
+// 76126553
+// 76044242
+
+async function getUserID(username){
+  let useridEndpoint = `users?login=${username}`
+  let response = await reqData.twitchEndpoint.get(useridEndpoint);
+  let userid = response.data.data[0].id;
+  return userid;
+}
+
+async function banUser(userid){
+  let streamerId = process.env.BANTARGET;
+  let banEndpoint = `moderation/bans?broadcaster_id=${streamerId}&moderator_id=76126553`
+  reqData.twitchEndpoint.post(banEndpoint, {
+    data: {
+      "user_id": `${userid}`,
+      "reason": "spam"
+    }
+  })
 }
 
 function checkForForbiddenWords(target, context, msg, client){
